@@ -1,5 +1,5 @@
 import ScenarioForm from './ScenarioForm.js';
-import './App.css';
+import './App.scss';
 
 function App() {
   return (
