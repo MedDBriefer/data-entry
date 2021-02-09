@@ -33,14 +33,15 @@ form {
         align-items: center;
         padding: 0;
         #basic-info {
-            display: block;
+            width: 50%;
+            margin-left: 10px;
             label {
                 display: inline-block;
                 margin: 10px 5px;
             }
 
             input[type="text"] {
-                width: 300px;
+                width: 90%;
             }
         }
 

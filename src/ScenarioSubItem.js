@@ -12,6 +12,10 @@ const ScenarioSubItem = (props) => {
                     <option value='interv'>Intervention</option>
                 </select>
             </label>
+
+            <label >Callout:
+                <input type='text'></input>
+            </label>
         </div>
     );
 }
