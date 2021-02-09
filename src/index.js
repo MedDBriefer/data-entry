@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ScenarioInfo from './ScenarioInfo.js';
 import ScenarioHeader from './ScenarioHeader.js';
 import ScenarioItem from './ScenarioItem.js';
 import ScenarioSubItem from './ScenarioSubItem.js';
@@ -45,9 +46,7 @@ class ScenarioForm extends React.Component {
     render() {
         return (
             <form id='scenario-form' className='scenario-form'>
-                <label id='title'>Scenario Title: 
-                    <input type='text'></input>
-                </label>
+                <ScenarioInfo />
 
                 <div className='form-content'>
                     <fieldset id='form-items'>

@@ -25,25 +25,74 @@ form {
     padding: 10px;
 
     .form-content {
-        position: relative;
         height: 100%;
     }
 
-    #title {
-        font-size: 30px;
+    .scenario-info {
         display: flex;
-        align-content: center;
-        margin-bottom: 5px;
+        align-items: center;
+        padding: 0;
+        #basic-info {
+            display: block;
+            label {
+                display: inline-block;
+                margin: 10px 5px;
+            }
 
-        input {
-            padding: 0 3px;
-            font-size: 25px;
-            width: 300px;
+            input[type="text"] {
+                width: 300px;
+            }
+        }
+
+        #secondary-info {
+            display: flex;
+            align-items: center;
+            margin: 0 10px 10px auto;
+        }
+
+        #vitals-info {
+            display: flex;
+            align-items: center;
+            #initial, #reassessment{
+                p {
+                    margin-left: 5px;
+                    font-size: 20px;
+                }
+                .vitals {
+                    display: grid;
+                    border: 1px gray solid;
+                    grid-template-columns: auto auto;
+
+                    input {
+                        width: 25px;
+                    }
+                }
+            }
+        }
+
+        #sample {
+            p {
+                margin-left: 5px;
+                font-size: 20px;
+            }
+            .sample-history {
+                border: 1px gray solid;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        .info-box {
+            padding: 7px;
+            margin: 0 3px;
+            height: 200px;
+            overflow: auto;
         }
     }
 
     label {
         margin: 5px;
+        margin-left: auto;
     }
 
     .check-item {
@@ -88,9 +137,8 @@ form {
 
     #submit-next {
         position: absolute;
-        margin: 0 !important;
-        bottom: 15px;
-        right: 10px;
+        right: 0;
+        bottom: 10px;
     }
 }
 
