@@ -1,35 +1,80 @@
 $lightBlue: rgba(0, 0, 255, 0.6);
+$hover-lightBlue: rgba(0, 0, 197, 0.6);
 
-body {
-    overflow: hidden;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-.App{
-    margin: 10px;
-}
+form {
+    .form-content {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        bottom: 60px;
+        overflow: auto;
+    }
 
-label {
-    margin: 5px;
-}
+    label {
+        margin: 5px;
+    }
 
-select, input {
-    margin: 0 5px;
-}
+    select, input {
+        margin: 0 5px;
+    }
 
-.label-input {
-    width: 30%;
+    fieldset {
+        padding: 10px;
+
+        legend {
+            padding: 5px;
+        }
+    }
+    
+    .label-input {
+        width: 30%;
+    }
+
+    .item-input {
+        margin-left: 22px;
+    }
+
+    #crit-items {
+        margin-top: 10px;
+        border-color: rgb(220, 120, 120);
+    }
+
+    .for {
+        width: 150px;
+    }
+
+    #submit-next {
+        position: absolute;
+        bottom: 15px;
+        right: 10px;
+    }
+
+    #add-crit-item {
+        width: 150px;
+    }
+
+    .list-item {
+        margin: 5px 0;
+    }
 }
 
 button {
-    width: 35px;
+    width: 100px;
     height: 35px;
     border: none;
-    font-size: 20px;
+    font-size: 15px;
     color: white;
     background-color: $lightBlue;
-    margin: 10px 0;
+    margin: 10px 10px 0 0;
 
     &:hover {
         cursor: pointer;
+        background-color: $hover-lightBlue;
     }
 }

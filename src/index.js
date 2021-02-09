@@ -1,17 +1,68 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ScenarioHeader from './ScenarioHeader.js';
+import ScenarioItem from './ScenarioItem.js';
+import CriticalCriteriaItem from './CriticalCriteriaItem.js';
+import './App.scss';
+
+class ScenarioForm extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            data : [
+                <ScenarioHeader  />,
+                <ScenarioItem  />
+            ],
+            critData : [
+                <CriticalCriteriaItem />
+            ],
+        };
+        this.handleClick = this.handleClick.bind(this);
+    };
+
+    handleClick(e) {
+        e.preventDefault();
+        let data = this.state.data.slice();
+        let critData = this.state.critData.slice();
+
+        if(e.target.id === 'add-header-button'){
+            data.push( <ScenarioHeader /> );
+        } else if(e.target.id === 'add-item-button'){
+            data.push( <ScenarioItem /> );
+        } else {
+            critData.push( <CriticalCriteriaItem /> );
+        }
+        this.setState({
+            data: data,
+            critData: critData,
+        });
+    }
+
+    render() {
+        return (
+            <form id='scenario-form' className='scenario-form'>
+                <div className='form-content'>
+                    <fieldset id='form-items'>
+                        <legend>Scenario Items</legend>
+                        {this.state.data}
+                    </fieldset>
+                    <div>
+                        <button id='add-header-button' onClick={this.handleClick}>Add Header</button>
+                        <button id='add-item-button' onClick={this.handleClick}>Add Item</button>
+                    </div>
+                    <fieldset id="crit-items">
+                        <legend>Critical Criteria</legend>
+                        {this.state.critData}
+                    </fieldset>
+                    <button id='add-crit-item' onClick={this.handleClick}>Add Critical Item</button>
+                </div>
+                <button type='submit' id='submit-next'>Next →</button>
+            </form>
+        );
+    }
+}
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+    <ScenarioForm />,
+    document.getElementById('root')
+  );
