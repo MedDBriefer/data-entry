@@ -6,18 +6,59 @@ $hover-lightBlue: rgba(0, 0, 197, 0.6);
     padding: 0;
 }
 
+body {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#root {
+    position: relative;
+    height: 100%;
+    overflow: auto;
+}
+
 form {
+    position: relative;
+    padding: 10px;
+
     .form-content {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        left: 10px;
-        bottom: 60px;
-        overflow: auto;
+        position: relative;
+        height: 100%;
+    }
+
+    #title {
+        font-size: 30px;
+        display: flex;
+        align-content: center;
+        margin-bottom: 5px;
+
+        input {
+            padding: 0 3px;
+            font-size: 25px;
+            width: 300px;
+        }
     }
 
     label {
         margin: 5px;
+    }
+
+    .check-item {
+        margin-left: 12px !important;
+
+        &::before {
+            content: "-";
+        }
+    }
+
+    .sub-item {
+        margin-left: 12px !important;
+        &::before {
+            content: "- -";
+        }
     }
 
     select, input {
@@ -25,9 +66,9 @@ form {
     }
 
     fieldset {
-        padding: 10px;
-
+        padding: 5px;
         legend {
+            font-size: 20px;
             padding: 5px;
         }
     }
@@ -36,42 +77,31 @@ form {
         width: 30%;
     }
 
-    .item-input {
-        margin-left: 22px;
-    }
-
     #crit-items {
         margin-top: 10px;
         border-color: rgb(220, 120, 120);
     }
 
-    .for {
-        width: 150px;
+    .list-item {
+        margin: 5px 0;
     }
 
     #submit-next {
         position: absolute;
+        margin: 0 !important;
         bottom: 15px;
         right: 10px;
-    }
-
-    #add-crit-item {
-        width: 150px;
-    }
-
-    .list-item {
-        margin: 5px 0;
     }
 }
 
 button {
-    width: 100px;
     height: 35px;
     border: none;
     font-size: 15px;
     color: white;
     background-color: $lightBlue;
     margin: 10px 10px 0 0;
+    padding: 0 15px;
 
     &:hover {
         cursor: pointer;
