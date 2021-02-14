@@ -1,45 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ScenarioInfo from './ScenarioInfo.js';
-import ScenarioHeader from './ScenarioHeader.js';
 import ScenarioItem from './ScenarioItem.js';
-import ScenarioSubItem from './ScenarioSubItem.js';
-import CriticalCriteriaItem from './CriticalCriteriaItem.js';
 import './App.scss';
+
+var traumaSteplist = require('./data/trauma-scenario.json');
 
 class ScenarioForm extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            data : [
-                <ScenarioHeader  />,
-                <ScenarioItem  />
-            ],
-            critData : [
-                <CriticalCriteriaItem />
-            ],
+            data : null,
         };
 
-        this.handleClick = this.handleClick.bind(this);
+        this.handleUpdate = this.handleUpdate.bind(this);
     };
 
-    handleClick(e) {
-        e.preventDefault();
-        let data = this.state.data.slice();
-        let critData = this.state.critData.slice();
+    handleUpdate(e) {
+        // TODO 
+    }
 
-        if(e.target.id === 'add-header-button'){
-            data.push( <ScenarioHeader /> );
-        } else if(e.target.id === 'add-item-button'){
-            data.push( <ScenarioItem /> );
-        } else if(e.target.id === 'add-sub-item-button'){
-            data.push( <ScenarioSubItem /> );
-        } else {
-            critData.push( <CriticalCriteriaItem /> );
-        }
+    componentDidMount() {
+        // Import scenario data
+        let scenarioData = [];
+        traumaSteplist.forEach((item) => {
+            scenarioData.push( <ScenarioItem item={item} /> );
+        });
+
         this.setState({
-            data: data,
-            critData: critData,
+            data: scenarioData,
         });
     }
 
@@ -48,25 +37,12 @@ class ScenarioForm extends React.Component {
             <form id='scenario-form' className='scenario-form'>
                 <ScenarioInfo />
 
-                <div className='form-content'>
-                    <fieldset id='form-items'>
-                        <legend>Scenario Items</legend>
+                <fieldset id='scenario-steps'>
+                    <legend>Scenario Items</legend>
+                    <div className='steplist-wrapper' id='step-data'>
                         {this.state.data}
-                    </fieldset>
-
-                    <div id='add-buttons'>
-                        <button id='add-header-button' onClick={this.handleClick}>Add Header</button>
-                        <button id='add-item-button' onClick={this.handleClick}>Add Item</button>
-                        <button id='add-sub-item-button' onClick={this.handleClick}>Add Sub-Item</button>
                     </div>
-
-                    <fieldset id="crit-items">
-                        <legend>Critical Criteria</legend>
-                        {this.state.critData}
-                    </fieldset>
-
-                    <button id='add-crit-item' onClick={this.handleClick}>Add Critical Item</button>
-                </div>
+                </fieldset>
 
                 <button type='submit' id='submit-next'>Next →</button>
             </form>

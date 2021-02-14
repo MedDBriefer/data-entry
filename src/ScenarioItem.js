@@ -1,20 +1,20 @@
 const ScenarioItem = (props) => {
     return (
-        <div className='check-item list-item'>
-            <label >Item Label:
-                <input type='text' className='item-input label-input'></input>
-            </label>
-            
-            <label>Item Type:
-                <select id='type'>
-                    <option value='assess'>Assess</option>
-                    <option value='action'>Action</option>
-                    <option value='interv'>Intervention</option>
+        <div className='step-item'>
+            <p>'{props.item.label}':</p> 
+
+            <label>
+                Intervention Type:
+                <select id={`${props.item.id}-type`}>
+                    <option value='na'>NA</option>
+                    <option value='say'>Say</option>
+                    <option value='do'>Do</option>
                 </select>
             </label>
 
-            <label >Callout:
-                <input type='text'></input>
+            <label>
+                Callout: 
+                <input type='text' id={`${props.item.id}-callout`} placeholder='optional'></input>
             </label>
         </div>
     );
