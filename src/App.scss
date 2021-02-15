@@ -8,9 +8,13 @@ $blue: rgb(50, 125, 255);
 
 body {
     padding: 10px;
+    position: relative;
 
     form {
+        overflow-x: auto;
+
         fieldset {
+            
             legend {
                 margin: 0 5px;
                 padding: 0 5px;
@@ -26,11 +30,10 @@ body {
                 display: flex;
                 padding: 5px;
                 margin: 5px;
-
+                
                 .info-box {
                     border: 1px solid black;
                     height: 100%;
-
                     h3 {
                         padding: 5px;
                     }
@@ -92,7 +95,13 @@ body {
         
         #scenario-steps {
             .steplist-wrapper {
-                width: 100%;
+                @media screen and (max-width: 650px){
+                    .step-item {
+                        display: flex;
+                        flex-direction: column;
+                    }
+                }
+
                 .step-item {
                     margin: 10px;
                     border: 1px solid black;
@@ -114,11 +123,50 @@ body {
                 }
             }
         }
+
+        .interventions-wrapper {
+            padding: 5px;
+            .intervention {
+                border: 1px solid black;
+                border-radius: 3px;
+                padding: 7px;
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 7px;
+
+                label {
+                    margin: 7px 0;
+                }
+
+                .type-wrapper {
+                    input {
+                        margin: 0 10px;
+                    }
+                }
+
+                .intervention-options {
+                    display: flex;
+                    flex-direction: column;
+
+                    label {
+                        margin: 5px 0;
+                    }
+                }
+
+                button {
+                    width: 90px;
+                }
+            }
+        }
     }
 
     #submit-next {
         position: relative;
         left: calc(100% - 65px);
+    }
+
+    #add-intervention {
+        margin: 5px;
     }
 
     button {
