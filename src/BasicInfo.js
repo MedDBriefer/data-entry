@@ -3,34 +3,34 @@ const BasicInfo = (props) => {
         <div id='basic-info' className='info-wrapper'>
             <div id='scenario-type'>
                 <label>
-                    Trauma <input type='radio' id='type-trauma' name='scenario-type' value='trauma'></input>
+                    Trauma <input type='radio' id='info-type-trauma' name='scenario-type' value='trauma'></input>
                 </label>
                 <label>
-                    Medical <input type='radio' id='type-medical' name='scenario-type' value='medical'></input>
+                    Medical <input type='radio' id='info-type-medical' name='scenario-type' value='medical'></input>
                 </label>
             </div>
 
-            <label id='scenario-title'>
+            <label id='info-scenario-title'>
                 Scenario Title: <input type='text'></input>
             </label>
 
-            <label id='instructor-info'>
+            <label id='info-instructor-info'>
                 Instructor Info: <input type='text'></input>
             </label>
 
-            <label id='dispatch-info'>
+            <label id='info-dispatch-info'>
                 Dispatch Info: <input type='text'></input>
             </label>
 
-            <label id='scene-assessment'>
+            <label id='info-scene-assessment'>
                 Scene assessment: <input type='text'></input>
             </label>
 
-            <label id='max-time'>
+            <label id='info-max-time'>
                 Maximum time for scenario: <input type='number' placeholder='minutes'></input>
             </label>
             
-            <label id='patient-info'>
+            <label id='info-patient-info'>
                 Patient Info: <input type='text'></input>
             </label>
         </div>

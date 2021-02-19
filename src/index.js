@@ -4,131 +4,15 @@ import ScenarioInfo from './ScenarioInfo.js';
 import ScenarioItem from './ScenarioItem.js';
 import './App.scss';
 
-var traumaSteplist = require('./data/trauma-scenario.json');
+const traumaSteplist = require('./data/trauma-scenario.json');
+
+let formOutput = require('./data/form-output.json');
 
 class ScenarioForm extends React.Component {
     constructor(props){
         super(props);
         this.state = {
             data : [],
-            form : {
-                id: null,
-                scenarioType: null,
-                info: {
-                    instructorInformation: null,
-                    patientInformation: {
-                        moulage: null,
-                        position: null,
-                        actions: null,
-                    },
-                    dispatchInfo: null,
-                    sceneAssessment: null,
-                },
-                assessmentFindings: {
-                    "assess-scene-safety": null,
-                    "assess-injury-mechanism": null,
-                    "assess-num-patients": null,
-                    "request-addl-help": null,
-                    "verbalizes-patient-condition": null,
-                    "determines-loc": null,
-                    "determines-life-threats": null,
-                    "assess-airway": null,
-                    "assess-breathing": null,
-                    "assess-ventilation": null,
-                    "assess-pulse": null,
-                    "assess-skin": null,
-                    "assess-bleeding": null,
-                    "assess-mouth-nose-face": null,
-                    "assess-scape-ears": null,
-                    "assess-perrl": null,
-                    "assess-trachea": null,
-                    "assess-jugular": null,
-                    "assess-spine": null,
-                    "inspects-chest": null,
-                    "palpate-chest": null,
-                    "auscultate-chest": null,
-                    "assess-abdomen": null,
-                    "assess-pelvis": null,
-                    "assess-genitalia": null,
-                    "assess-left-leg": null,
-                    "assess-right-leg": null,
-                    "assess-left-arm": null,
-                    "assess-right-arm": null,
-                    "assess-posterior-thorax": null,
-                    "assess-lumbar-buttocks": null,
-                },
-                initialVitalSigns: {
-                    BP: null,
-                    P: null,
-                    R: null,
-                    Skin: null,
-                    Spo2: null,
-                    ETCO2: null,
-                    GCS: null,
-                    Glucose: null,
-                    Pain: null,
-                    Temp: null,
-                },
-                SAMPLE: {
-                    S: null,
-                    A: null,
-                    M: null,
-                    P: null,
-                    L: null,
-                    E: null,
-                },
-                reassessmentVitals: {
-                    BP: {
-                    "goodVitals": null,
-                    "badVitals": null,
-                    },
-                    P: {
-                    "goodVitals": null,
-                    "badVitals": null,
-                    },
-                    R: {
-                    "goodVitals": null,
-                    "badVitals": null,
-                    },
-                    Skin: {
-                    "goodVitals": null,
-                    "badVitals": null,
-                    },
-                    Spo2: {
-                    "goodVitals": null,
-                    "badVitals": null,
-                    },
-                    ETCO2: {
-                    "goodVitals": null,
-                    "badVitals": null,
-                    },
-                    GCS: {
-                    "goodVitals": null,
-                    "badVitals": null,
-                    },
-                    Glucose: {
-                    "goodVitals": null,
-                    "badVitals": null,
-                    },
-                    Pain: {
-                    "goodVitals": null,
-                    "badVitals": null,
-                    },
-                    Temp: {
-                    "goodVitals": null,
-                    "badVitals": null,
-                    }
-                },
-                interventions: {
-                    "stabilizes-spine": null,
-                    "manages-airway": null,
-                    "oxygen-therapy": null,
-                    "manage-breathing-injury": null,
-                    "control-bleeding": null,
-                    "control-shock": null,
-                    "transport-priority": null,
-                },
-            },
         };
 
         this.handleUpdate = this.handleUpdate.bind(this);
@@ -136,13 +20,53 @@ class ScenarioForm extends React.Component {
     };
 
     handleUpdate(e) {
-        // TODO 
-        console.log(e);
+        let input = e.target.value;
+        let root = e.target.id.split('-')[0];
+        let id, type;
+
+        if(input === '') input = 'Unremarkable';
+
+        switch(root) {
+            case 'findings': 
+                id = e.target.id.split('findings-')[1];
+                formOutput.assessmentFindings[id] = input;
+
+                break;
+            case 'type': 
+                id = e.target.id.split('type-')[1];
+                formOutput.interventions[id] = input;
+
+                break;
+            case 'info': 
+                id = e.target.id.split('info-')[1];
+
+                break;
+            case 'vitals': 
+                id = e.target.id.split('-');
+                type = id[1];
+                let vital = id[2];
+
+                if (type === 'initial')
+                    formOutput.initialVitalSigns[vital] = input;
+                else if (type === 'good') 
+                    formOutput.reassessmentVitals[vital].goodVitals = input;
+                else
+                    formOutput.reassessmentVitals[vital].badVitals = input;
+                    
+                break;
+            case 'sample': 
+                id = e.target.id.split('sample-')[1].toUpperCase();
+                formOutput.SAMPLE[id] = input;
+
+                break;
+            default: console.log('Error with root: ' + root);
+        }
+
+        //console.log(formOutput);
     }
 
     submitForm(e) {
-        this.forceUpdate();
-        console.log(this.state.form);
+        console.log(formOutput);
         // TODO: actually connect to the firebase database
     }
 
