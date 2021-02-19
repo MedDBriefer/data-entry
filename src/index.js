@@ -10,15 +10,8 @@ let formOutput = require('./data/form-output.json');
 // ID's of each HTML element are very specifically set.
 // Do not change or it will break the form's saving.
 
-class ScenarioForm extends React.Component {
-    constructor(props){
-        super(props);
-
-        this.handleUpdate = this.handleUpdate.bind(this);
-        this.submitForm = this.submitForm.bind(this);
-    };
-
-    handleUpdate(e) {
+const ScenarioForm = () => {
+    function handleUpdate(e) {
         let input = e.target.value;
         let root = e.target.id.split('-')[0];
         let id, type;
@@ -77,32 +70,32 @@ class ScenarioForm extends React.Component {
         //console.log(formOutput);
     }
 
-    submitForm(e) {
+    function submitForm(e) {
         console.log(formOutput);
         // TODO: actually connect to the firebase database
     }
 
-    render() {
-        return (
-            <form id="scenario-form" className="scenario-form" onChange={this.handleUpdate} action=''>
-                <ScenarioInfo />
 
-                <fieldset id="scenario-steps">
-                    <legend>Scenario Items</legend>
-                    <div className="steplist-wrapper" id="step-data">
-                        {scenarioData.map(item => (
-                            <ScenarioItem key={item.id} item ={item}/>
-                        ))}
-                    </div>
-                </fieldset>
+    return (
+        <form id="scenario-form" className="scenario-form" onChange={() => handleUpdate()} action=''>
+            <ScenarioInfo />
 
-                <button type="button" id="submit-next" onClick={this.submitForm}>Next →</button>
-            </form>
-        );
-    }
+            <fieldset id="scenario-steps">
+                <legend>Scenario Items</legend>
+                <div className="steplist-wrapper" id="step-data">
+                    {scenarioData.map(item => (
+                        <ScenarioItem key={item.id} item ={item}/>
+                    ))}
+                </div>
+            </fieldset>
+
+            <button type="button" id="submit-next" onClick={() => submitForm()}>Next →</button>
+        </form>
+    );
+
 }
 
 ReactDOM.render(
     <ScenarioForm />,
     document.getElementById('root')
-  );
+);
