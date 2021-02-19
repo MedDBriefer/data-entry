@@ -4,18 +4,18 @@ import BasicInfo from './BasicInfo.js';
 
 const ScenarioInfo = (props) => {
     return (
-        <fieldset id='scenario-info' className='scenario-info'>
+        <fieldset id="scenario-info" className="scenario-info">
             <legend>Scenario Info</legend>
 
             <BasicInfo />
 
-            <div id='secondary-info' className='info-wrapper'>
-                <div className='vitals-wrapper'>
+            <div id="secondary-info" className="info-wrapper">
+                <div className="vitals-wrapper">
                     <Vitals type='initial'/>
                     <Vitals type='good'/>
                     <Vitals type='bad'/>
                 </div>
-                <div className='sample-wrapper'>
+                <div className="sample-wrapper">
                     <SampleInfo />
                 </div>
             </div>

@@ -3,7 +3,7 @@ const ScenarioItem = (props) => {
         (props.item.type === 'heading') ? 
             <ScenarioHeader item={props.item} /> :
         
-        <div className='step-item'>
+        <div className="step-item">
             <p>'{props.item.label}':</p> 
 
             {
@@ -17,7 +17,7 @@ const ScenarioItem = (props) => {
 
 const ScenarioHeader = (props) => {
     return (
-        <div className='list-item header-item'>
+        <div className="list-item header-item">
             {props.item.label}
         </div>
     );
@@ -28,9 +28,9 @@ const InterventionType = (props) => {
         <label>
             Intervention Type:
             <select id={`type-${props.item.id}`}>
-                <option value='na'>NA</option>
-                <option value='say'>Say</option>
-                <option value='do'>Do</option>
+                <option value="na">NA</option>
+                <option value="say">Say</option>
+                <option value="do">Do</option>
             </select>
         </label>
     );
@@ -40,7 +40,7 @@ const AssessmentFindings = (props) => {
     return (
         <label>
             Assessment Findings: 
-            <input type='text' id={`findings-${props.item.id}`} placeholder='blank if unremarkable'></input>
+            <input type="text" id={`findings-${props.item.id}`} placeholder="blank if unremarkable"></input>
         </label>
     );
     

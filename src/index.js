@@ -84,19 +84,19 @@ class ScenarioForm extends React.Component {
 
     render() {
         return (
-            <form id='scenario-form' className='scenario-form' onChange={this.handleUpdate} action=''>
+            <form id="scenario-form" className="scenario-form" onChange={this.handleUpdate} action=''>
                 <ScenarioInfo />
 
-                <fieldset id='scenario-steps'>
+                <fieldset id="scenario-steps">
                     <legend>Scenario Items</legend>
-                    <div className='steplist-wrapper' id='step-data'>
+                    <div className="steplist-wrapper" id="step-data">
                         {scenarioData.map(item => (
                             <ScenarioItem key={item.id} item ={item}/>
                         ))}
                     </div>
                 </fieldset>
 
-                <button type='button' id='submit-next' onClick={this.submitForm}>Next →</button>
+                <button type="button" id="submit-next" onClick={this.submitForm}>Next →</button>
             </form>
         );
     }
