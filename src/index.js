@@ -13,9 +13,6 @@ let formOutput = require('./data/form-output.json');
 class ScenarioForm extends React.Component {
     constructor(props){
         super(props);
-        this.state = {
-            data : [],
-        };
 
         this.handleUpdate = this.handleUpdate.bind(this);
         this.submitForm = this.submitForm.bind(this);
@@ -85,35 +82,21 @@ class ScenarioForm extends React.Component {
         // TODO: actually connect to the firebase database
     }
 
-    componentDidMount(e) {
-        // Import scenario data
-        let data = [];
-        scenarioData.forEach((item) => {
-            data.push( <ScenarioItem item={item} /> );
-        });
-        // Apply
-        this.setState({
-            data: data,
-        });
-    }
-
     render() {
         return (
-            <form id='scenario-form' className='scenario-form' onChange={this.handleUpdate} action=''>
+            <form id="scenario-form" className="scenario-form" onChange={this.handleUpdate} action=''>
                 <ScenarioInfo />
 
-                <fieldset id='scenario-steps'>
+                <fieldset id="scenario-steps">
                     <legend>Scenario Items</legend>
-                    <div className='steplist-wrapper' id='step-data'>
-                        {/* 
-                            Display the list of data that was imported
-                            (wrapper div is for formatting)
-                        */}
-                        {this.state.data}
+                    <div className="steplist-wrapper" id="step-data">
+                        {scenarioData.map(item => (
+                            <ScenarioItem key={item.id} item ={item}/>
+                        ))}
                     </div>
                 </fieldset>
 
-                <button type='button' id='submit-next' onClick={this.submitForm}>Next →</button>
+                <button type="button" id="submit-next" onClick={this.submitForm}>Next →</button>
             </form>
         );
     }
