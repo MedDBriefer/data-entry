@@ -5,22 +5,22 @@ const SampleInfo = (props) => {
             
             <div className='sample'>
                 <label>
-                    S: <input type='text' id='sample-s'></input>
+                    S: <input type='text' id='sample-S'></input>
                 </label>
                 <label>
-                    A: <input type='text' id='sample-a'></input>
+                    A: <input type='text' id='sample-A'></input>
                 </label>
                 <label>
-                    M: <input type='text' id='sample-m'></input>
+                    M: <input type='text' id='sample-M'></input>
                 </label>
                 <label>
-                    P: <input type='text' id='sample-p'></input>
+                    P: <input type='text' id='sample-P'></input>
                 </label>
                 <label>
-                    L: <input type='text' id='sample-l'></input>
+                    L: <input type='text' id='sample-L'></input>
                 </label>
                 <label>
-                    E: <input type='text' id='sample-e'></input>
+                    E: <input type='text' id='sample-E'></input>
                 </label>
             </div>
         </div>

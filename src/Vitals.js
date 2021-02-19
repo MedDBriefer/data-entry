@@ -17,7 +17,7 @@ const Vitals = (props) => {
                     <input id={`vitals-${props.type}-Skin`} type='text'></input>
                 </label>
                 <label>Sp02:
-                    <input id={`vitals-${props.type}-Sp02`} type='text'></input>
+                    <input id={`vitals-${props.type}-Spo2`} type='text'></input>
                 </label>
                 <label>ETC02:
                     <input id={`vitals-${props.type}-ETCO2`} type='text'></input>

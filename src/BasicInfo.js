@@ -1,37 +1,29 @@
 const BasicInfo = (props) => {
     return (
         <div id='basic-info' className='info-wrapper'>
-            <div id='scenario-type'>
-                <label>
-                    Trauma <input type='radio' id='info-type-trauma' name='scenario-type' value='trauma'></input>
-                </label>
-                <label>
-                    Medical <input type='radio' id='info-type-medical' name='scenario-type' value='medical'></input>
-                </label>
-            </div>
-
-            <label id='info-scenario-title'>
-                Scenario Title: <input type='text'></input>
+            <h3>Basic Information:</h3>
+            <label>
+                Scenario Title: <input id='basicinfo-id' type='text'></input>
             </label>
 
-            <label id='info-instructor-info'>
-                Instructor Info: <input type='text'></input>
+            <label>
+                Instructor Info: <input id='info-instructorInformation' type='text'></input>
             </label>
 
-            <label id='info-dispatch-info'>
-                Dispatch Info: <input type='text'></input>
+            <label>
+                Dispatch Info: <input id='info-dispatchInfo' type='text'></input>
             </label>
 
-            <label id='info-scene-assessment'>
-                Scene assessment: <input type='text'></input>
+            <label>
+                Scene assessment: <input id='info-sceneAssessment' type='text'></input>
             </label>
 
-            <label id='info-max-time'>
-                Maximum time for scenario: <input type='number' placeholder='minutes'></input>
+            <label>
+                Maximum time for scenario: <input id='info-maxTime' type='number' placeholder='minutes'></input>
             </label>
             
-            <label id='info-patient-info'>
-                Patient Info: <input type='text'></input>
+            <label>
+                Patient Info: <input id='info-patientInformation' type='text'></input>
             </label>
         </div>
     );

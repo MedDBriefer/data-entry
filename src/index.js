@@ -2,11 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ScenarioInfo from './ScenarioInfo.js';
 import ScenarioItem from './ScenarioItem.js';
+import scenarioData from './data/trauma-scenario.json';
 import './App.scss';
 
-const traumaSteplist = require('./data/trauma-scenario.json');
-
 let formOutput = require('./data/form-output.json');
+
+// ID's of each HTML element are very specifically set.
+// Do not change or it will break the form's saving.
 
 class ScenarioForm extends React.Component {
     constructor(props){
@@ -24,28 +26,40 @@ class ScenarioForm extends React.Component {
         let root = e.target.id.split('-')[0];
         let id, type;
 
-        if(input === '') input = 'Unremarkable';
+        if (input === '') input = 'Unremarkable'; // Base case
 
         switch(root) {
             case 'findings': 
+                // Assessment findings
                 id = e.target.id.split('findings-')[1];
                 formOutput.assessmentFindings[id] = input;
 
                 break;
             case 'type': 
+                // Intervention type
                 id = e.target.id.split('type-')[1];
                 formOutput.interventions[id] = input;
 
                 break;
+            case 'basicinfo':
+                // id, scenario type
+                id = e.target.id.split('basicinfo-')[1];
+                formOutput[id] = input;
+                
+                break;
             case 'info': 
+                // instructor info, patient info, dispatch info, scene assessment
                 id = e.target.id.split('info-')[1];
+                formOutput.info[id] = input;
 
                 break;
             case 'vitals': 
                 id = e.target.id.split('-');
+                // Note if good/bad/init vitals & what type (BP/P/R)
                 type = id[1];
                 let vital = id[2];
 
+                // Map vitals to correct places
                 if (type === 'initial')
                     formOutput.initialVitalSigns[vital] = input;
                 else if (type === 'good') 
@@ -55,7 +69,8 @@ class ScenarioForm extends React.Component {
                     
                 break;
             case 'sample': 
-                id = e.target.id.split('sample-')[1].toUpperCase();
+                // SAMPLE!
+                id = e.target.id.split('sample-')[1];
                 formOutput.SAMPLE[id] = input;
 
                 break;
@@ -72,13 +87,13 @@ class ScenarioForm extends React.Component {
 
     componentDidMount(e) {
         // Import scenario data
-        let scenarioData = [];
-        traumaSteplist.forEach((item) => {
-            scenarioData.push( <ScenarioItem item={item} /> );
+        let data = [];
+        scenarioData.forEach((item) => {
+            data.push( <ScenarioItem item={item} /> );
         });
-
+        // Apply
         this.setState({
-            data: scenarioData,
+            data: data,
         });
     }
 
@@ -90,6 +105,10 @@ class ScenarioForm extends React.Component {
                 <fieldset id='scenario-steps'>
                     <legend>Scenario Items</legend>
                     <div className='steplist-wrapper' id='step-data'>
+                        {/* 
+                            Display the list of data that was imported
+                            (wrapper div is for formatting)
+                        */}
                         {this.state.data}
                     </div>
                 </fieldset>
