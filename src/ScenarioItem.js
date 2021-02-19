@@ -27,7 +27,7 @@ const InterventionType = (props) => {
     return (
         <label>
             Intervention Type:
-            <select id={`${props.item.id}-type`}>
+            <select id={`type-${props.item.id}`}>
                 <option value='na'>NA</option>
                 <option value='say'>Say</option>
                 <option value='do'>Do</option>

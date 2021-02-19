@@ -8,10 +8,9 @@ $blue: rgb(50, 125, 255);
 
 body {
     padding: 10px;
-    position: relative;
 
     form {
-        overflow-x: auto;
+        //overflow-x: auto;
 
         fieldset {
             
@@ -37,11 +36,6 @@ body {
                     h3 {
                         padding: 5px;
                     }
-
-                    label {
-                        display: inline-block;
-                        margin-left: auto;
-                    }
                 }
 
                 .vitals-wrapper {
@@ -65,13 +59,7 @@ body {
                 }
             }
 
-            label * {
-                margin: 5px 0;
-
-                input {
-                    margin-left: 5px;
-                }
-            }
+            
 
             #basic-info {
                 display: flex;
@@ -79,11 +67,15 @@ body {
                 width: 50%;
 
                 #scenario-type {
-                    margin-bottom: 10px;
+                    margin: 5px 0 10px 0;
+
+                    label {
+                        margin-right: 5px;
+                        white-space: nowrap;
+                    }
 
                     input {
-                        width: auto;
-                        margin: 5px 10px;
+                        width: 1rem;
                     }
                 }
 
@@ -120,6 +112,13 @@ body {
                     input, select {
                         margin-left: 10px;
                     }
+                }
+
+                .header-item{
+                    margin-left: 10px;
+                    color: $blue;
+                    font-size: 20px;
+                    font-weight: bold;
                 }
             }
         }

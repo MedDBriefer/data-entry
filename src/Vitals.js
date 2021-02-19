@@ -5,34 +5,34 @@ const Vitals = (props) => {
 
             <div className='vitals'>
                 <label>BP:
-                    <input id={`${props.type}-bp`} type='text'></input>
+                    <input id={`vitals-${props.type}-bp`} type='text'></input>
                 </label>
                 <label>Pulse:
-                    <input id={`${props.type}-pulse`} type='text'></input>
+                    <input id={`vitals-${props.type}-pulse`} type='text'></input>
                 </label>
                 <label>R:
-                    <input id={`${props.type}-resp`} type='text'></input>
+                    <input id={`vitals-${props.type}-resp`} type='text'></input>
                 </label>
                 <label>Skin:
-                    <input id={`${props.type}-skin`} type='text'></input>
+                    <input id={`vitals-${props.type}-skin`} type='text'></input>
                 </label>
                 <label>Sp02:
-                    <input id={`${props.type}-sp02`} type='text'></input>
+                    <input id={`vitals-${props.type}-sp02`} type='text'></input>
                 </label>
                 <label>ETC02:
-                    <input id={`${props.type}-etco2`} type='text'></input>
+                    <input id={`vitals-${props.type}-etco2`} type='text'></input>
                 </label>
                 <label>GCS:
-                    <input id={`${props.type}-gcs`} type='text'></input>
+                    <input id={`vitals-${props.type}-gcs`} type='text'></input>
                 </label>
                 <label>Glucose:
-                    <input id={`${props.type}-glucose`} type='text'></input>
+                    <input id={`vitals-${props.type}-glucose`} type='text'></input>
                 </label>
                 <label>Pain:
-                    <input id={`${props.type}-pain`} type='text'></input>
+                    <input id={`vitals-${props.type}-pain`} type='text'></input>
                 </label>
                 <label>Temp:
-                    <input id={`${props.type}-temp`} type='text'></input>
+                    <input id={`vitals-${props.type}-temp`} type='text'></input>
                 </label>
             </div>
         </div>
