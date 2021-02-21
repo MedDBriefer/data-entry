@@ -4,12 +4,10 @@ const ScenarioItem = (props) => {
         ? <ScenarioHeader item={props.item} />
 
         : <div className="step-item">
-            <p>'{props.item.label}':</p> 
-
             {
-            (props.item.type === 'assessment') ?
-                <AssessmentFindings item={props.item} /> :
-                <InterventionType item={props.item} />
+                (props.item.type === 'assessment') 
+                ?   <AssessmentFindings item={props.item} /> 
+                :   <InterventionType item={props.item} />
             }
         </div>
     );
@@ -26,7 +24,7 @@ const ScenarioHeader = (props) => {
 const InterventionType = (props) => {
     return (
         <label>
-            Intervention Type:
+            {`'${props.item.label}':`}
             <select id={`type-${props.item.id}`}>
                 <option value="na">NA</option>
                 <option value="say">Say</option>
@@ -39,7 +37,7 @@ const InterventionType = (props) => {
 const AssessmentFindings = (props) => {
     return (
         <label>
-            Assessment Findings: 
+            {`'${props.item.label}':`}
             <input type="text" id={`findings-${props.item.id}`} placeholder="blank if unremarkable"></input>
         </label>
     );

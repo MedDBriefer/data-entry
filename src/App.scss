@@ -110,13 +110,9 @@ body {
                     padding: 5px 10px;
                     background-color: $light-bg;
 
-                    p {
-                        margin: 5px 0;
-                        font-style: italic;
-                    }
-
                     label {
                         margin-right: 10px;
+                        font-style: italic;
                     }
 
                     input, select {
@@ -155,5 +151,9 @@ body {
             cursor: pointer;
             background-color: $lightBlue;
         }
+    }
+
+    input {
+        padding: 1px;
     }
 }
