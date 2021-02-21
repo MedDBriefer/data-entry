@@ -1,5 +1,9 @@
-$lightBlue: rgba(50, 125, 255, 0.8);
 $blue: rgb(50, 125, 255);
+$dark-bg:  rgb(42, 42, 42);
+$med-bg: rgb(125, 125, 125);
+$light-bg: rgb(240, 240, 240);
+$light-text: rgb(250, 250, 250);
+$lightBlue: rgb(84, 174, 235);
 
 * {
     margin: 0;
@@ -7,32 +11,37 @@ $blue: rgb(50, 125, 255);
 }
 
 body {
-    padding: 10px;
+    padding: 5px 10px;
+    //background-color: $dark-bg;
 
     form {
-        //overflow-x: auto;
 
         fieldset {
             
             legend {
                 margin: 0 5px;
                 padding: 0 5px;
-                font-size: 1.25rem;
+                font-size: 1.5em;
+                //color: $light-text;
             }
         }
 
         .scenario-info {
             display: flex;
+            margin-bottom: 10px;
 
             .info-wrapper {
                 border: 1px solid black;
                 display: flex;
                 padding: 5px;
                 margin: 5px;
+                background-color: $light-bg;
                 
                 .info-box {
-                    border: 1px solid black;
+                    // border: 1px solid black;
+                    // border-style: none solid;
                     height: 100%;
+
                     h3 {
                         padding: 5px;
                     }
@@ -43,7 +52,7 @@ body {
 
                     .vitals {
                         margin: 5px;
-                        padding: 5px;
+                        //padding: 5px;
                         display: grid;
                         grid-template-columns: auto auto;
                         gap: 5px;
@@ -87,18 +96,19 @@ body {
         
         #scenario-steps {
             .steplist-wrapper {
-                @media screen and (max-width: 650px){
-                    .step-item {
-                        display: flex;
-                        flex-direction: column;
-                    }
-                }
+                display: flex;
+                flex-direction: column;
+                padding: 5px;
+                // display: grid;
+                // grid-auto-flow: column;
+                // grid-template-rows: repeat(26, auto);
 
                 .step-item {
-                    margin: 10px;
+                    margin: 5px;
                     border: 1px solid black;
                     border-radius: 3px;
                     padding: 5px 10px;
+                    background-color: $light-bg;
 
                     p {
                         margin: 5px 0;
@@ -116,44 +126,9 @@ body {
 
                 .header-item{
                     margin-left: 10px;
-                    color: $blue;
-                    font-size: 20px;
+                    color: $lightBlue;
+                    font-size: 1.75rem;
                     font-weight: bold;
-                }
-            }
-        }
-
-        .interventions-wrapper {
-            padding: 5px;
-            .intervention {
-                border: 1px solid black;
-                border-radius: 3px;
-                padding: 7px;
-                display: flex;
-                flex-direction: column;
-                margin-bottom: 7px;
-
-                label {
-                    margin: 7px 0;
-                }
-
-                .type-wrapper {
-                    input {
-                        margin: 0 10px;
-                    }
-                }
-
-                .intervention-options {
-                    display: flex;
-                    flex-direction: column;
-
-                    label {
-                        margin: 5px 0;
-                    }
-                }
-
-                button {
-                    width: 90px;
                 }
             }
         }

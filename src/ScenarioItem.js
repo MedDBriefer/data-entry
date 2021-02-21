@@ -1,9 +1,9 @@
 const ScenarioItem = (props) => {
     return (
-        (props.item.type === 'heading') ? 
-            <ScenarioHeader item={props.item} /> :
-        
-        <div className="step-item">
+        (props.item.type === 'heading') 
+        ? <ScenarioHeader item={props.item} />
+
+        : <div className="step-item">
             <p>'{props.item.label}':</p> 
 
             {

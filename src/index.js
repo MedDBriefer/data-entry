@@ -7,18 +7,21 @@ import './App.scss';
 
 let formOutput = require('./data/form-output.json');
 
+// ******************** IMPORTANT!! ************************
 // ID's of each HTML element are very specifically set.
 // Do not change or it will break the form's saving.
 
 const ScenarioForm = () => {
     function handleUpdate(e) {
-        let input = e.target.value;
-        let root = e.target.id.split('-')[0];
-        let id, type;
+        // console.log(e);
+        let input = e.target.value; // Get user text input
+        let root = e.target.id.split('-')[0]; // Type of input prefix
+        let id, type; // utility assignment vars
 
         if (input === '') input = 'Unremarkable'; // Base case
 
-        switch(root) {
+        switch(root)
+        {
             case 'findings': 
                 // Assessment findings
                 id = e.target.id.split('findings-')[1];
@@ -54,7 +57,7 @@ const ScenarioForm = () => {
                     formOutput.initialVitalSigns[vital] = input;
                 else if (type === 'good') 
                     formOutput.reassessmentVitals[vital].goodVitals = input;
-                else
+                else // type === 'bad'
                     formOutput.reassessmentVitals[vital].badVitals = input;
                     
                 break;
@@ -66,8 +69,7 @@ const ScenarioForm = () => {
                 break;
             default: console.log('Error with root: ' + root);
         }
-
-        //console.log(formOutput);
+        //console.log(formOutput); // DEBUG
     }
 
     function submitForm(e) {
@@ -77,7 +79,8 @@ const ScenarioForm = () => {
 
 
     return (
-        <form id="scenario-form" className="scenario-form" onChange={() => handleUpdate()} action=''>
+        <form id="scenario-form" className="scenario-form" onChange={(e) => handleUpdate(e)} action="">
+
             <ScenarioInfo />
 
             <fieldset id="scenario-steps">
