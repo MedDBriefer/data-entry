@@ -1,7 +1,7 @@
 const BasicInfo = (props) => {
     return (
         <div id="basic-info" className="info-wrapper">
-            <h3>Basic Information:</h3>
+            <h1>Basic Information:</h1>
             <label>
                 Scenario Title: <input id="basicinfo-id" type="text"></input>
             </label>

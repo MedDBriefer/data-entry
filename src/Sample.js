@@ -1,7 +1,7 @@
-const SampleInfo = (props) => {
+const Sample = (props) => {
     return (
         <div className="info-box" id="sample">
-            <h3>SAMPLE:</h3>
+            <h1>SAMPLE:</h1>
             
             <div className="sample">
                 <label>
@@ -27,4 +27,4 @@ const SampleInfo = (props) => {
     );
 }
 
-export default SampleInfo;
+export default Sample;

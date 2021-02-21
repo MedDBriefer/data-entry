@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import ScenarioInfo from './ScenarioInfo.js';
-import ScenarioItem from './ScenarioItem.js';
-import scenarioData from './data/trauma-scenario.json';
+import BasicInfo from './BasicInfo.js';
+import Steplist from './Steplist.js';
+import Vitals from './Vitals';
+import Sample from './Sample.js';
 import './App.scss';
 
 let formOutput = require('./data/form-output.json');
@@ -77,21 +78,29 @@ const ScenarioForm = () => {
         // TODO: actually connect to the firebase database
     }
 
+    const [tab, setTab] = useState('basic-info');
 
     return (
-        <form id="scenario-form" className="scenario-form" onChange={(e) => handleUpdate(e)} action="">
+        <form id="scenario-form" className="scenario-form" action="">
 
-            <ScenarioInfo />
+            <div id="tab-selector">
+                <button type="button" className="tab" onClick={() => setTab('basic-info')}>Info</button>
+                <button type="button" className="tab" onClick={() => setTab('vitals')}>Vitals</button>
+                <button type="button" className="tab" onClick={() => setTab('sample')}>Sample</button>
+                <button type="button" className="tab" onClick={() => setTab('steplist')}>Steplist</button>
+            </div>
 
-            <fieldset id="scenario-steps">
-                <legend>Scenario Items</legend>
-                <div className="steplist-wrapper" id="step-data">
-                    {scenarioData.map(item => (
-                        <ScenarioItem key={item.id} item ={item}/>
-                    ))}
-                </div>
-            </fieldset>
-
+            <div id="form-view" onChange={(e) => handleUpdate(e)}>
+                {(tab == 'basic-info')
+                    ?   <BasicInfo />
+                    :   (tab == 'vitals')
+                        ?   <Vitals />
+                        :   (tab == 'sample')
+                            ?   <Sample />
+                            :   <Steplist />
+                }
+            </div>
+            
             <button type="button" id="submit-next" onClick={() => submitForm()}>Next →</button>
         </form>
     );
