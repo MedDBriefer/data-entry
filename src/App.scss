@@ -1,0 +1,149 @@
+$tab-button-bg: rgb(230, 230, 230);
+$tab-button-bg-dark: rgb(200, 200, 200);
+$blue: rgb(130, 130, 255);
+$dark-blue: rgb(100, 100, 255);
+
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica';
+}
+
+body
+{
+    position: relative;
+    padding: 10px;
+
+    #tab-selector 
+    {
+        display: flex;
+        .tab-button 
+        {
+            border: none;
+            border-radius: 10px 10px 0 0;
+            background-color: $tab-button-bg;
+            padding: 10px 20px;
+            font-size: 1rem;
+
+            &:hover
+            {
+                background-color: $tab-button-bg-dark;
+                cursor: pointer;
+            }
+        }
+    }   
+    
+    .scenario-form
+    {
+        border: 2px solid $tab-button-bg-dark;
+        padding: 5px;
+
+        #basic-info
+        {
+            display: flex;
+            flex-direction: column;
+
+            label
+            {
+                display: flex;
+                flex-direction: column;
+                margin: 3px 0;
+            }
+        }
+
+        .sample
+        {
+            display: flex;
+            flex-direction: column;
+
+            label
+            {
+                margin: 5px 0;
+                input {
+                    width: 30%;
+                }
+            }
+        }
+
+        #scenario-steps
+        {
+            .header-item
+            {
+                color: $dark-blue;
+                font-size: 1.5rem;
+            }
+
+            .step-item
+            {
+                border: 1px solid black;
+                border-radius: 3px;
+                padding: 7px 5px;
+                margin: 5px 0;
+                font-style: italic;
+
+                input, select
+                {
+                    margin-left: 5px;
+                }
+
+                input
+                {
+                    width: 20%;
+                }
+            }
+        }
+
+        .vitals
+        {
+            display: flex;
+
+            .vital-wrapper
+            {
+                margin-right: 5px;
+                border: 1px solid black;
+                border-radius: 3px;
+                padding: 5px;
+
+                .vitals-box
+                {
+                    display: grid;
+                    grid-template-columns: auto auto;
+                    grid-gap: 5px;
+                    
+
+                    input {
+                        float: right;
+                        margin: 0 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    #submit-next
+    {
+        border: none;
+        background-color: $blue;
+        padding: 8px;
+        color: white;
+        margin: 5px 0;
+        float: right;
+
+        &:hover
+        {
+            background-color: $dark-blue;
+            cursor: pointer;
+        }
+    }
+
+    input
+    {
+        padding: 2px;
+    }
+
+    h1 
+    {
+        margin-bottom: 10px;
+    }
+}
