@@ -19,7 +19,7 @@ body
     {
         display: flex;
         user-select: none;
-        
+
         .tab-button 
         {
             border: none;
@@ -39,7 +39,7 @@ body
     .scenario-form
     {
         border: 2px solid $tab-button-bg-dark;
-        padding: 5px;
+        padding: 7px;
 
         #basic-info
         {
@@ -54,16 +54,21 @@ body
             }
         }
 
-        .sample
+        #sample
         {
-            display: flex;
-            flex-direction: column;
-
-            label
+            width: 30%;
+            .sample
             {
-                margin: 5px 0;
-                input {
-                    width: 30%;
+                display: flex;
+                flex-direction: column;
+
+                label
+                {
+                    margin: 5px 0;
+                    input {
+                        width: 92%;
+                        float: right;
+                    }
                 }
             }
         }
