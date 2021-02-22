@@ -6,14 +6,18 @@ import Vitals from './Vitals';
 import Sample from './Sample.js';
 import './App.scss';
 
-let formOutput = require('./data/form-output.json');
+let formOutput = require('./data/blank-trauma-form.json');
 
-// ******************** IMPORTANT!! ************************
-// ID's of each HTML input element are very specifically set.
-// Do not change or it will break the form's saving.
+/************************ IMPORTANT!! ***************************
+   ID's of each HTML input element are very specifically set.
+   Do not change or it will break the form's saving.
+*****************************************************************/
 
-const ScenarioForm = () => {
-    function handleUpdate(e) {
+const ScenarioForm = (props) => {
+    var editMode = props.editMode; // Handle editing of forms instead of just creating
+
+    function handleUpdate(e) 
+    {
         // console.log(e);
         let input = e.target.value; // Get user text input
         let root = e.target.id.split('-')[0]; // Type of input prefix
@@ -43,9 +47,10 @@ const ScenarioForm = () => {
                 break;
             case 'info': 
                 // instructor info, patient info, dispatch info, scene assessment
-                id = e.target.id.split('info-')[1];
-                formOutput.info[id] = input;
-
+                id = e.target.id.split('-');
+                (id[1] == 'pt') 
+                    ? formOutput.info.patientInformation[id[2]] = input
+                    : formOutput.info[id[1]] = input;                  
                 break;
             case 'vitals': 
                 id = e.target.id.split('-');
@@ -73,11 +78,14 @@ const ScenarioForm = () => {
         //console.log(formOutput); // DEBUG
     }
 
-    function submitForm(e) {
-        if(window.confirm('All empty items will be filled with default information. Are you sure you want to submit?')){
+    function submitForm(e) 
+    {
+        if(window.confirm('All empty items will be filled with default information. Are you sure you want to submit?'))
+        {
             console.log(formOutput);
             // TODO: actually connect to the firebase database
-        } else {
+        } else 
+        {
             console.log('Submit cancelled.');
         }
     }
@@ -85,8 +93,10 @@ const ScenarioForm = () => {
     // Tab state
     const [tab, setTab] = useState('basic-info');
 
-    function updateView() {
-        switch(tab){
+    function updateView()
+    {
+        switch(tab)
+        {
             case 'basic-info':
                 return <BasicInfo />;
             case 'vitals':
@@ -105,8 +115,8 @@ const ScenarioForm = () => {
         <>
             <div id="tab-selector">
                 <div type="button" className="tab-button" onClick={() => setTab('basic-info')}>Info</div>
-                <div type="button" className="tab-button" onClick={() => setTab('vitals')}>Vitals</div>
                 <div type="button" className="tab-button" onClick={() => setTab('sample')}>Sample</div>
+                <div type="button" className="tab-button" onClick={() => setTab('vitals')}>Vitals</div>
                 <div type="button" className="tab-button" onClick={() => setTab('steplist')}>Steplist</div>
             </div>
             <form id="scenario-form" className="scenario-form" onChange={(e) => handleUpdate(e)} action="">
