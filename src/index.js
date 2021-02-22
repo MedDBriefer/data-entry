@@ -74,8 +74,10 @@ const ScenarioForm = () => {
     }
 
     function submitForm(e) {
-        console.log(formOutput);
-        // TODO: actually connect to the firebase database
+        if(window.confirm('All empty items will be filled with default information. Are you sure you want to submit?')){
+            console.log(formOutput);
+            // TODO: actually connect to the firebase database
+        }
     }
 
     // Tab state
