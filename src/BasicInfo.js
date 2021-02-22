@@ -7,15 +7,15 @@ const BasicInfo = (props) => {
             </label>
 
             <label>
-                Instructor Info: <input id="info-instructorInformation" type="text"></input>
+                Instructor Info: <textarea id="info-instructorInformation"></textarea>
             </label>
 
             <label>
-                Dispatch Info: <input id="info-dispatchInfo" type="text"></input>
+                Dispatch Info: <textarea id="info-dispatchInfo"></textarea>
             </label>
 
             <label>
-                Scene assessment: <input id="info-sceneAssessment" type="text"></input>
+                Scene assessment: <textarea id="info-sceneAssessment"></textarea>
             </label>
 
             <label>
@@ -23,7 +23,7 @@ const BasicInfo = (props) => {
             </label>
             
             <label>
-                Patient Info: <input id="info-patientInformation" type="text"></input>
+                Patient Info: <textarea id="info-patientInformation"></textarea>
             </label>
         </div>
     );

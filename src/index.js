@@ -78,31 +78,33 @@ const ScenarioForm = () => {
         // TODO: actually connect to the firebase database
     }
 
+    // Tab state
     const [tab, setTab] = useState('basic-info');
 
     return (
-        <form id="scenario-form" className="scenario-form" action="">
-
+        <>
             <div id="tab-selector">
-                <button type="button" className="tab" onClick={() => setTab('basic-info')}>Info</button>
-                <button type="button" className="tab" onClick={() => setTab('vitals')}>Vitals</button>
-                <button type="button" className="tab" onClick={() => setTab('sample')}>Sample</button>
-                <button type="button" className="tab" onClick={() => setTab('steplist')}>Steplist</button>
+                <div type="button" className="tab-button" onClick={() => setTab('basic-info')}>Info</div>
+                <div type="button" className="tab-button" onClick={() => setTab('vitals')}>Vitals</div>
+                <div type="button" className="tab-button" onClick={() => setTab('sample')}>Sample</div>
+                <div type="button" className="tab-button" onClick={() => setTab('steplist')}>Steplist</div>
             </div>
+            <form id="scenario-form" className="scenario-form" onChange={(e) => handleUpdate(e)} action="">
 
-            <div id="form-view" onChange={(e) => handleUpdate(e)}>
-                {(tab == 'basic-info')
+                {
+                // Switch the tab view based on the state of tabs
+                (tab === 'basic-info')
                     ?   <BasicInfo />
-                    :   (tab == 'vitals')
+                    :   (tab === 'vitals')
                         ?   <Vitals />
-                        :   (tab == 'sample')
+                        :   (tab === 'sample')
                             ?   <Sample />
                             :   <Steplist />
                 }
-            </div>
-            
-            <button type="button" id="submit-next" onClick={() => submitForm()}>Next →</button>
-        </form>
+        
+            </form>
+            <button type="button" id="submit-next" onClick={() => submitForm()}>Submit →</button>
+        </>
     );
 
 }
