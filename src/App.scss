@@ -26,7 +26,7 @@ body
             border-radius: 10px 10px 0 0;
             background-color: $tab-button-bg;
             padding: 10px 20px;
-            font-size: 1rem;
+            font-size: 1em;
 
             &:hover
             {
@@ -51,6 +51,11 @@ body
                 display: flex;
                 flex-direction: column;
                 margin: 3px 0;
+
+                textarea
+                {
+                    height: 4em;
+                }
             }
         }
 
@@ -78,7 +83,7 @@ body
             .header-item
             {
                 color: $dark-blue;
-                font-size: 1.5rem;
+                font-size: 1.5em;
             }
 
             .step-item
@@ -132,6 +137,7 @@ body
     {
         border: none;
         background-color: $blue;
+        font-size: 1em;
         padding: 8px;
         color: white;
         margin: 5px 0;
