@@ -77,11 +77,29 @@ const ScenarioForm = () => {
         if(window.confirm('All empty items will be filled with default information. Are you sure you want to submit?')){
             console.log(formOutput);
             // TODO: actually connect to the firebase database
+        } else {
+            console.log('Submit cancelled.');
         }
     }
 
     // Tab state
     const [tab, setTab] = useState('basic-info');
+
+    function updateView() {
+        switch(tab){
+            case 'basic-info':
+                return <BasicInfo />;
+            case 'vitals':
+                return <Vitals />
+            case 'sample':
+                return <Sample />
+            case 'steplist':
+                return <Steplist />
+            default:
+                console.log('Error switching tabs. Defaulting.');
+                return <BasicInfo />;
+        }
+    }
 
     return (
         <>
@@ -93,15 +111,8 @@ const ScenarioForm = () => {
             </div>
             <form id="scenario-form" className="scenario-form" onChange={(e) => handleUpdate(e)} action="">
 
-                {
-                // Switch the tab view based on the state of tabs
-                (tab === 'basic-info')
-                    ?   <BasicInfo />
-                    :   (tab === 'vitals')
-                        ?   <Vitals />
-                        :   (tab === 'sample')
-                            ?   <Sample />
-                            :   <Steplist />
+                {// Switch the tab view based on the state of tabs
+                    updateView()
                 }
         
             </form>
