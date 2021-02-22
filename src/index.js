@@ -9,7 +9,7 @@ import './App.scss';
 let formOutput = require('./data/form-output.json');
 
 // ******************** IMPORTANT!! ************************
-// ID's of each HTML element are very specifically set.
+// ID's of each HTML input element are very specifically set.
 // Do not change or it will break the form's saving.
 
 const ScenarioForm = () => {
