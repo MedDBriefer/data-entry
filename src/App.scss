@@ -10,7 +10,7 @@ $dark-blue: rgb(100, 100, 255);
     font-family: 'Helvetica';
 }
 
-body
+body 
 {
     position: relative;
     padding: 10px;
@@ -66,7 +66,6 @@ body
 
         #sample
         {
-            width: 30%;
             .sample
             {
                 display: flex;
@@ -75,9 +74,12 @@ body
                 label
                 {
                     margin: 5px 0;
+                    display: flex;
+
                     input {
-                        width: 92%;
-                        float: right;
+                        position: absolute;
+                        margin-left: 2em;
+                        width: 50%;
                     }
                 }
             }
@@ -114,7 +116,7 @@ body
         .vitals
         {
             display: flex;
-
+            overflow-x: auto;
             .vital-wrapper
             {
                 margin-right: 5px;
@@ -128,11 +130,17 @@ body
                     grid-template-columns: auto auto;
                     grid-gap: 5px;
                     
-
-                    input {
-                        float: right;
-                        margin: 0 5px;
+                    label
+                    {
+                        display: flex;
+                        padding-right: 5px;
+                        input
+                        {
+                            margin: 0 5px;
+                            margin-left: auto;
+                        }
                     }
+                    
                 }
             }
         }
