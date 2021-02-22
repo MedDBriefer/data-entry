@@ -21,10 +21,19 @@ const BasicInfo = (props) => {
             <label>
                 Maximum time for scenario: <input id="info-maxTime" type="number" placeholder="minutes"></input>
             </label>
-            
-            <label>
-                Patient Info: <textarea id="info-patientInformation"></textarea>
-            </label>
+
+            <h3>Patient Info:</h3>
+            <div id='pt-info'>
+                <label>
+                    Moulage: <input type="text" id="info-pt-moulage"></input>
+                </label>
+                <label>
+                    Position: <input type="text" id="info-pt-position"></input>
+                </label>
+                <label>
+                    Actions: <input type="text" id="info-pt-actions"></input>
+                </label>
+            </div>
         </div>
     );
 }
