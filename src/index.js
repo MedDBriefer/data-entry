@@ -4,6 +4,7 @@ import BasicInfo from './BasicInfo.js';
 import Steplist from './Steplist.js';
 import Vitals from './Vitals';
 import Sample from './Sample.js';
+import publishScenario from './scripts/connect-firebase.js';
 import './App.scss';
 
 let formOutput = require('./data/blank-trauma-form.json');
@@ -83,7 +84,8 @@ const ScenarioForm = (props) => {
         if(window.confirm('All empty items will be filled with default information. Are you sure you want to submit?'))
         {
             console.log(formOutput);
-            // TODO: actually connect to the firebase database
+            // Actually connect to the firebase database
+            publishScenario(formOutput);
         } else 
         {
             console.log('Submit cancelled.');

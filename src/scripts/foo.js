@@ -1,5 +1,3 @@
-console.log("hello world")
-
 const admin = require('firebase-admin');
 
 const serviceAccount = require('../../meddbriefer-68cd4-f3021042a326.json');

@@ -1,6 +1,6 @@
 {
-    "id": null,
-    "scenarioType": null,
+    "name": "blank-trauma",
+    "scenarioType": "trauma",
     "info": {
         "instructorInformation": null,
         "patientInformation": {

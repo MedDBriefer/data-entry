@@ -3,7 +3,7 @@ const BasicInfo = (props) => {
         <div id="basic-info" className="info-wrapper">
             <h1>Basic Information:</h1>
             <label>
-                Scenario Title: <input id="basicinfo-id" type="text"></input>
+                Scenario Title: <input id="basicinfo-name" type="text"></input>
             </label>
 
             <label>
