@@ -19,37 +19,38 @@ const VitalsBox = (props) => {
     }
 
     return (
+        // The &nbsp; character is a little fix for styling the input box while it's nested
         <div className="vital-wrapper">
             <h1> {`${header} Vitals:`} </h1>
             <div className="vitals-box">
-                <label>BP:
+                <label>BP:&nbsp; 
                     <input id={`vitals-${props.type}-BP`} type="text"></input>
                 </label>
-                <label>Pulse:
+                <label>Pulse:&nbsp; 
                     <input id={`vitals-${props.type}-P`} type="text"></input>
                 </label>
-                <label>R:
+                <label>R:&nbsp; 
                     <input id={`vitals-${props.type}-R`} type="text"></input>
                 </label>
-                <label>Skin:
+                <label>Skin:&nbsp; 
                     <input id={`vitals-${props.type}-Skin`} type="text"></input>
                 </label>
-                <label>Sp02:
+                <label>Sp02:&nbsp; 
                     <input id={`vitals-${props.type}-Spo2`} type="text"></input>
                 </label>
-                <label>ETC02:
+                <label>ETC02:&nbsp; 
                     <input id={`vitals-${props.type}-ETCO2`} type="text"></input>
                 </label>
-                <label>GCS:
+                <label>GCS:&nbsp; 
                     <input id={`vitals-${props.type}-GCS`} type="text"></input>
                 </label>
-                <label>Glucose:
+                <label>Glucose:&nbsp; 
                     <input id={`vitals-${props.type}-Glucose`} type="text"></input>
                 </label>
-                <label>Pain:
+                <label>Pain:&nbsp; 
                     <input id={`vitals-${props.type}-Pain`} type="text"></input>
                 </label>
-                <label>Temp:
+                <label>Temp:&nbsp; 
                     <input id={`vitals-${props.type}-Temp`} type="text"></input>
                 </label>
             </div>

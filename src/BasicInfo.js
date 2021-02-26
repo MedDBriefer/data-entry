@@ -22,7 +22,7 @@ const BasicInfo = (props) => {
                 Maximum time for scenario: <input id="info-maxTime" type="number" placeholder="minutes"></input>
             </label>
 
-            <h3>Patient Info:</h3>
+            <h2>Patient Info:</h2>
             <div id='pt-info'>
                 <label>
                     Moulage: <input type="text" id="info-pt-moulage"></input>
