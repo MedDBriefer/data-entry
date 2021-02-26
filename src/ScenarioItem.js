@@ -38,7 +38,7 @@ const AssessmentFindings = (props) => {
     return (
         <label>
             {`'${props.item.label}':`}
-            <input type="text" id={`findings-${props.item.id}`} placeholder="blank if unremarkable"></input>
+            <input type="text" id={`findings-${props.item.id}`} placeholder="leave blank if N/A or unremarkable"></input>
         </label>
     );
     
