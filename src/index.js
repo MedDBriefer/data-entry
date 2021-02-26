@@ -115,12 +115,13 @@ const ScenarioForm = (props) => {
 
     return (
         <>
-            <div id="tab-selector">
+            <nav id="tab-selector">
                 <div type="button" className="tab-button" onClick={() => setTab('basic-info')}>Info</div>
                 <div type="button" className="tab-button" onClick={() => setTab('sample')}>Sample</div>
                 <div type="button" className="tab-button" onClick={() => setTab('vitals')}>Vitals</div>
                 <div type="button" className="tab-button" onClick={() => setTab('steplist')}>Steplist</div>
-            </div>
+                <button type="button" id="submit-next" onClick={() => submitForm()}>Submit →</button>
+            </nav>
             <form id="scenario-form" className="scenario-form" onChange={(e) => handleUpdate(e)} action="">
 
                 {// Switch the tab view based on the state of tabs
@@ -128,7 +129,6 @@ const ScenarioForm = (props) => {
                 }
         
             </form>
-            <button type="button" id="submit-next" onClick={() => submitForm()}>Submit →</button>
         </>
     );
 

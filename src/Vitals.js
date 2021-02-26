@@ -19,38 +19,37 @@ const VitalsBox = (props) => {
     }
 
     return (
-        // The &nbsp; character is a little fix for styling the input box while it's nested
         <div className="vital-wrapper">
             <h1> {`${header} Vitals:`} </h1>
             <div className="vitals-box">
-                <label>BP:&nbsp; 
+                <label>BP:
                     <input id={`vitals-${props.type}-BP`} type="text"></input>
                 </label>
-                <label>Pulse:&nbsp; 
+                <label>Pulse:
                     <input id={`vitals-${props.type}-P`} type="text"></input>
                 </label>
-                <label>R:&nbsp; 
+                <label>R:
                     <input id={`vitals-${props.type}-R`} type="text"></input>
                 </label>
-                <label>Skin:&nbsp; 
+                <label>Skin:
                     <input id={`vitals-${props.type}-Skin`} type="text"></input>
                 </label>
-                <label>Sp02:&nbsp; 
+                <label>Sp02:
                     <input id={`vitals-${props.type}-Spo2`} type="text"></input>
                 </label>
-                <label>ETC02:&nbsp; 
+                <label>ETC02:
                     <input id={`vitals-${props.type}-ETCO2`} type="text"></input>
                 </label>
-                <label>GCS:&nbsp; 
+                <label>GCS:
                     <input id={`vitals-${props.type}-GCS`} type="text"></input>
                 </label>
-                <label>Glucose:&nbsp; 
+                <label>Glucose:
                     <input id={`vitals-${props.type}-Glucose`} type="text"></input>
                 </label>
                 <label>Pain:&nbsp; 
                     <input id={`vitals-${props.type}-Pain`} type="text"></input>
                 </label>
-                <label>Temp:&nbsp; 
+                <label>Temp:
                     <input id={`vitals-${props.type}-Temp`} type="text"></input>
                 </label>
             </div>
