@@ -14,10 +14,22 @@ $submit-bg-dark: #18662a;
     font-weight: 400;
 }
 
+@media only screen and (max-width: 600px) {
+    // Mobile layout changes
+    * {
+        font-family: 'Helvetica' !important;
+    }
+
+    #tab-selector {
+        .tab-button {
+            padding: 15px 15px !important;
+        }
+    }
+    
+}
+
 body 
 {
-    //position: relative;
-
     #tab-selector 
     {
         position: fixed;
@@ -26,6 +38,7 @@ body
         user-select: none;
         width: 100%;
         background-color: $tab-bg;
+        overflow-x: auto;
 
         .tab-button 
         {
@@ -187,6 +200,7 @@ body
         margin: 7px 10px 7px auto;
         padding: 0 10px;
         border-radius: 5px;
+        white-space: nowrap;
 
         &:hover
         {
