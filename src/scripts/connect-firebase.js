@@ -28,6 +28,7 @@ function publishScenario(scenarioObject, edit=false) {
             })
             .catch((error) => {
                 console.log(error);
+                alert(`Unable to publish '${scenarioObject.name}'.`);
             });
     }
     else
