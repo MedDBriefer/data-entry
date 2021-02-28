@@ -1,5 +1,5 @@
 import ScenarioItem from './ScenarioItem.js';
-import scenarioData from './data/trauma-scenario.json';
+import scenarioData from '../data/trauma-scenario.json';
 
 const Steplist = (props) => {
     return (

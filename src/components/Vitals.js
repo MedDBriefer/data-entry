@@ -1,26 +1,17 @@
 const Vitals = () => {
     return (
         <div className="info-box vitals">
-            <VitalsBox type="init" />
-            <VitalsBox type="good" />
-            <VitalsBox type="bad" />
+            <VitalsBox type="init" header = "Initial" />
+            <VitalsBox type="good" header = "Good Reassessment" />
+            <VitalsBox type="bad" header = "Bad Reassessment" />
         </div>
     );
 }
 
 const VitalsBox = (props) => {
-    let header;
-    switch(props.type)
-    {
-        case 'init': header = "Initial"; break;
-        case 'good': header = 'Good Reassessment'; break;
-        case 'bad': header = 'Bad Reassessment'; break;
-        default: console.log('Vitals header error.'); break;
-    }
-
     return (
         <div className="vital-wrapper">
-            <h1> {`${header} Vitals:`} </h1>
+            <h1> {`${props.header} Vitals:`} </h1>
             <div className="vitals-box">
                 <label>BP:
                     <input id={`vitals-${props.type}-BP`} type="text"></input>
