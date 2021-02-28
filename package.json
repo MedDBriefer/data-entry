@@ -37,5 +37,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "To be used for creating and editing MedDBriefer scenarios",
+  "main": "index.js",
+  "repository": "https://github.com/MedDBriefer/data-entry.git",
+  "author": "Collin O'Connor <cmo56@pitt.edu>",
+  "license": "MIT"
 }
