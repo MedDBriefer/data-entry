@@ -6,6 +6,8 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import InterventionForm from './components/InterventionForm';
+import ScenarioForm from './components/ScenarioForm';
 
 
 const App = () => {
@@ -13,8 +15,8 @@ const App = () => {
         <Router>
             <Switch>
                 <Route exact path='/' component={Home} />
-                <Route path='/sign-in' component={SignIn} />
-                <Route path='/create-account' component={CreateAccount} />
+                <Route path='/scenario-form' component={ScenarioForm} />
+                <Route path='/intervention-form' component={InterventionForm} />
             </Switch>
         </Router>
     );
@@ -26,32 +28,19 @@ function Home() {
             <div className="title-bar">
                 <h1>MedDBriefer</h1>
             </div>
-            
             <div className="nav-wrapper">
-                <Link to='/sign-in'>
+                <Link to='/scenario-form'>
                     <div className="home-nav-button" >
-                        Sign In
+                        Scenario Form
                     </div>
                 </Link>
-                <Link to='/create-account'>
+                <Link to='/intervention-form'>
                     <div className="home-nav-button" >
-                        Create Account
+                        Intervention Form
                     </div>
                 </Link>
             </div>
         </>
-    );
-}
-
-function SignIn () {
-    return (
-        <h1>Sign In</h1>
-    );
-}
-
-function CreateAccount () {
-    return (
-        <h1>Create Account</h1>
     );
 }
 

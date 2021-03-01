@@ -7,7 +7,7 @@ $light-gray: $hover;
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', monospace;
-    font-weight: lighter;
+    font-weight: lighter !important;
     text-decoration: none;
     color: black;
 }
@@ -23,10 +23,12 @@ $light-gray: $hover;
     background-color: $header-bg;
     display: flex;
     align-items: center;
+    
 
     h1 {
         color: $light-gray;
         margin-left: 15px;
+        font-weight: lighter !important;
     }
 }
 
@@ -40,6 +42,10 @@ $light-gray: $hover;
    
     a {
         margin: 10px;
+        font-weight: lighter !important;
+        text-decoration: none;
+        color: black;
+        
         .home-nav-button {
             @include center-children;
             border: solid 1px $border;

@@ -14,7 +14,7 @@ let formOutput = require('../data/blank-trauma-form.json');
 *****************************************************************/
 
 const ScenarioForm = (props) => {
-    //var editMode = props.editMode; // Handle editing of forms instead of just creating
+    var editMode = props.editMode; // Handle editing of forms instead of just creating
 
     function handleUpdate(e) 
     {
