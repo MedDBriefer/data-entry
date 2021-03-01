@@ -4,7 +4,7 @@ import Steplist from './Steplist.js';
 import Vitals from './Vitals';
 import Sample from './Sample.js';
 import publishScenario from '../scripts/connect-firebase.js';
-import '../App.scss';
+import '../styles/form-styles.scss';
 
 let formOutput = require('../data/blank-trauma-form.json');
 

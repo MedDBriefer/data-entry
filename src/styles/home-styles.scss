@@ -1,0 +1,56 @@
+$hover: rgb(240, 240, 240);
+$border: rgb(109, 54, 54);
+$header-bg: #343a40;
+$light-gray: $hover;
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', monospace;
+    font-weight: lighter;
+    text-decoration: none;
+    color: black;
+}
+
+@mixin center-children {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-bar {
+    height: 75px;
+    background-color: $header-bg;
+    display: flex;
+    align-items: center;
+
+    h1 {
+        color: $light-gray;
+        margin-left: 15px;
+    }
+}
+
+.nav-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include center-children;
+    flex-direction: column;
+   
+    a {
+        margin: 10px;
+        .home-nav-button {
+            @include center-children;
+            border: solid 1px $border;
+            height: 150px;
+            width: 300px;
+            border-radius: 10px;
+            font-size: 1.5em;
+    
+            &:hover {
+                background-color: $hover;
+            }
+        }
+    }
+}
